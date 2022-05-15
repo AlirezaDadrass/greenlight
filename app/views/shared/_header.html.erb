@@ -47,24 +47,24 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow text-right" x-placement="bottom-end">
               <%= link_to edit_user_path(current_user), class: "dropdown-item"  do %>
-                <i class="dropdown-icon fas fa-id-card ml-3"></i><%= t("header.dropdown.settings") %>
+                <i class="dropdown-icon fas fa-id-card ml-3"></i><%= "تنظیمات" %>
               <% end %>
               <% highest_role = current_user.role %>
               <% if highest_role.get_permission("can_manage_users") || highest_role.name == "super_admin" %>
                 <%= link_to admins_path, class: "dropdown-item" do %>
-                  <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= t("header.dropdown.account_settings") %>
+                  <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= "تنظیمات" %>
                 <% end %>
               <% elsif highest_role.get_permission("can_manage_rooms_recordings")%>
                 <%= link_to admin_rooms_path, class: "dropdown-item" do %>
-                  <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= t("header.dropdown.account_settings") %>
+                  <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= "تنظیمات" %>
                 <% end %>
               <% elsif highest_role.get_permission("can_edit_site_settings") %>
                 <%= link_to admin_site_settings_path, class: "dropdown-item" do %>
-                  <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= t("header.dropdown.account_settings") %>
+                  <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= "تنظیمات" %>
                 <% end %>
               <% elsif highest_role.get_permission("can_edit_roles")%>
                 <%= link_to admin_roles_path, class: "dropdown-item" do %>
-                  <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= t("header.dropdown.account_settings") %>
+                  <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= "تنظیمات" %>
                 <% end %>
               <% end %>
               <div class="dropdown-divider"></div>
@@ -73,13 +73,9 @@
                   <i class="dropdown-icon far fa-question-circle"></i> <%= "راهنما" %>
                 </a>
               <% end %>
-              <% if Rails.configuration.report_issue_url.present? %>
-                <a class="dropdown-item" href="<%= Rails.configuration.report_issue_url %>" target="_blank" rel="noopener">
-                  <i class="dropdown-icon fas fa-exclamation ml-3"></i><%= t("errors.internal.report") %>
-                </a>
-              <% end %>
+
               <%= button_to logout_path, class: "dropdown-item" do %>
-                <i class="dropdown-icon fas fa-sign-out-alt"></i> <%= "خروج" %>
+                <i class="dropdown-icon fas fa-sign-out-alt" style="margin-left: unset;"></i> <%= "خروج" %>
               <% end %>
             </div>
           </div>
