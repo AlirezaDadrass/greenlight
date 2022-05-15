@@ -15,12 +15,20 @@
 
 <div class="container">
   <div class="row pt-7">
-    <div class="col col-lg-6 offset-lg-3">
+    <div class="col col-lg-6 offset-lg-3" style ="justify-content:center;">
       <div class="card">
-        <div class="card-header background">
-          <h4 class="mt-2"><%= t("login_title") %></h4>
-        </div>
         <div class="card-body background">
+        <div class="row" style="justify-content:center">
+        <div class="col-12" style="display:flex;justify-content:center; text-align:center; flex-direction:column;">
+          <div style="justify-content:center">
+            <img src="https://webinar.ghandakcode.ir/img/logo.png" style="width: 150px;">
+          </div>
+          <p class="my-4 text-sm" style="font-size: 20px;">
+    ورود به سامانه
+          </p>
+        </div>
+      </div>
+
           <% unless iconset_providers.length.zero? %>
             <% iconset_providers.each do |provider| %>
               <%= link_to omniauth_login_url(provider), class: "customBtn-#{provider} oauth-signin", method: :post do %>
