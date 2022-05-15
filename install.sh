@@ -1,3 +1,4 @@
+ git pull
  docker-compose down
  ./scripts/image_build.sh gh release-v2
  docker-compose up -d
