@@ -24,31 +24,31 @@
     <div class="row pt-7 pt-sm-9 mb-7">
       <div class="col-lg-9 col-sm-12">
         <div id="room-title" class="display-3 form-inline <%= 'edit_hover_class' if current_user.main_room != @room %>" data-path="<%= update_settings_path(@room) %>">
-           <h1 contenteditable=false id="user-text" class="display-3 text-left mb-3 font-weight-400 text-break"><%= title(@room.name) %></h1>
           <% if current_user.main_room == @room %>
             <a class="disable-click"><i class="fas fa-home align-top home-indicator ml-2"></i></a>
           <% else %>
             <a><i id="edit-room" class="fa fa-edit align-top home-indicator ml-2" data-edit-room="<%= @room.uid %>"></i></a>
           <% end %>
+          <h1 contenteditable=false id="user-text" class="display-3 text-left mb-3 font-weight-400 text-break"><%= title(@room.name) %></h1>
         </div>
-        <h4 class="text-left mb-6"><%= @room.sessions %> <%= t("room.sessions") %><% unless hide_recording_tables %> | <%= @recordings.length %> <%= t("room.recordings") %><% end %></h4>
+        <h4 class="text-left mb-6"><%= @room.sessions %> <%= "جلسات" %><% unless hide_recording_tables %> | <%= @recordings.length %> <%= "رکورد ها" %><% end %></h4>
         <% unless exceeds_limit %>
-          <label class="form-label"><%= t("room.invite_participants") %></label>
+          <label class="form-label"><%= "آدرس رویداد" %></label>
           <div class="row">
             <div class="col-lg-6 col-md-12 mt-2">
               <div class="input-icon invite-link-input">
                 <span class="input-icon-addon">
                   <i class="fas fa-link"></i>
                 </span>
-                <input id="invite-url" type="text" class="form-control w-100" value="<%= request.base_url + @room.invite_path %>" readonly="">
+                <input id="invite-url" style="direction:ltr;" type="text" class="form-control w-100" value="<%= request.base_url + @room.invite_path %>" readonly="">
               </div>
             </div>
             <div class="col-lg-6 pr-lg-7 col-md-12 pl-lg-0">
               <div class="row">
                 <div class="col-sm-6 mt-2">
                   <button id="copy-invite" class="btn btn-primary btn-block" onclick="copyInvite()">
-                    <i class="fas fa-copy mr-1"></i>
-                    <%= t("copy") %>
+                    <i class="fas fa-copy ml-1"></i>
+                    <%= "کپی" %>
                   </button>
                 </div>
                 <div class="btn-group-vertical col-sm-6 pl-0 mt-2">
@@ -56,20 +56,20 @@
                     <input id="copy-code" value="<%= @room.access_code %>" type="hidden">
                     <button id="copy-access" class="btn btn-secondary btn-block" onclick="copyAccess()">
                       <i class="fas fa-copy mr-1"></i>
-                      <%= t("room.copy_access") %>
+                      <%= "کپی دسترسی" %>
                     </button>
                   <% end %>
                   <% if moderator_code_allowed? && @room.moderator_access_code.present? %>
                     <input id="copy-moderator-code" value="<%= @room.moderator_access_code %>" type="hidden">
                     <button id="copy-moderator-access" class="btn btn-secondary btn-block" onclick="copyAccess('moderator')">
                       <i class="fas fa-copy mr-1"></i>
-                      <%= t("room.copy_moderator_access") %>
+                      <%= "دسترسی معاون" %>
                     </button>
                   <% end %>
                   <% if Rails.configuration.enable_google_calendar_button %>
                     <a href="<%= google_calendar_path %>" target="__blank" id="schedule" class="btn btn-primary btn-block mt-2">
                       <i class="fas fa-calendar-plus"></i>
-                      <%= t("add_to_google_calendar") %>
+                      <%= "افزودن به تقویم گوگل" %>
                     </a>
                   <% end %>
                 </div>
@@ -80,10 +80,10 @@
       </div>
       <div class="col-lg-3 col-sm-12 force-bottom mt-5">
         <% if @room_running %>
-          <%= button_to t("room.join"), room_path(@room), class: "btn btn-primary btn-block start-button float-right", "data-disable": "" %>
+          <%= button_to "ورود به رویداد", room_path(@room), class: "btn btn-primary btn-block start-button float-right", "data-disable": "" %>
         <% else %>
           <% unless exceeds_limit %>
-            <%= button_to t("room.start"), start_room_path(@room), class: "btn btn-primary btn-block start-button float-right", "data-disable": "" %>
+            <%= button_to "شروع رویداد", start_room_path(@room), class: "btn btn-primary btn-block start-button float-right", "data-disable": "" %>
           <% end %>
         <% end %>
       </div>
@@ -94,7 +94,7 @@
         <span class="input-icon-addon">
           <i class="fas fa-search"></i>
           </span>
-        <input id="room-search" type="text" placeholder="<%= t("room.search") %>" class="form-control w-100" onChange="filterRooms()" onKeyUp="filterRooms()">
+        <input id="room-search" type="text" placeholder="<%= "جستجو" %>" class="form-control w-100" onChange="filterRooms()" onKeyUp="filterRooms()">
         <span id="clear-room-search" class="text-primary" onclick="clearRoomSearch()">
           <i class="fas fa-times"></i>
         </span>
@@ -130,7 +130,7 @@
 </div>
 
 <% unless hide_recording_tables %>
-  <%= render "shared/sessions", recordings: @recordings, pagy: @pagy, only_public: false, shared_room: @shared_room, user_recordings: false, title: t("room.recordings")%>
+  <%= render "shared/sessions", recordings: @recordings, pagy: @pagy, only_public: false, shared_room: @shared_room, user_recordings: false, title: "رکورد ها"%>
 <% end %>
 
 <%= render "shared/modals/delete_room_modal" %>
