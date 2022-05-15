@@ -15,7 +15,7 @@
 
 <div class="header py-4">
   <div class="container">
-    <div class="d-flex">
+    <div class="d-flex" style="justify-content: space-between;">
       <%= link_to (current_user ? home_page : root_path), class: "header-brand" do %>
         <% begin %>
           <%= image_tag(logo_image, class: "header-brand-img", alt:"") %>
@@ -24,7 +24,7 @@
         <% end %>
       <% end %>
 
-      <div class="d-flex ml-auto">
+      <div class="d-flex">
         <% if current_user %>
 
           <%= link_to home_page, class: "px-3 mx-1 mt-1 header-nav #{active_home}" do %>
