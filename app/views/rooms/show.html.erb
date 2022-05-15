@@ -29,9 +29,9 @@
           <% else %>
             <a><i id="edit-room" class="fa fa-edit align-top home-indicator ml-2" data-edit-room="<%= @room.uid %>"></i></a>
           <% end %>
-          <h1 contenteditable=false id="user-text" class="display-3 text-left mb-3 font-weight-400 text-break"><%= title(@room.name) %></h1>
+          <h1 contenteditable=false id="user-text" class="display-3 text-right mb-3 font-weight-400 text-break"><%= title(@room.name) %></h1>
         </div>
-        <h4 class="text-left mb-6"><%= @room.sessions %> <%= "جلسات" %><% unless hide_recording_tables %> | <%= @recordings.length %> <%= "رکورد ها" %><% end %></h4>
+        <h4 class="text-right mb-6"><%= @room.sessions %> <%= "جلسات" %><% unless hide_recording_tables %> | <%= @recordings.length %> <%= "رکورد ها" %><% end %></h4>
         <% unless exceeds_limit %>
           <label class="form-label"><%= "آدرس رویداد" %></label>
           <div class="row">
@@ -129,9 +129,7 @@
   </div>
 </div>
 
-<% unless hide_recording_tables %>
-  <%= render "shared/sessions", recordings: @recordings, pagy: @pagy, only_public: false, shared_room: @shared_room, user_recordings: false, title: "رکورد ها"%>
-<% end %>
+
 
 <%= render "shared/modals/delete_room_modal" %>
 
