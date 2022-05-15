@@ -35,7 +35,7 @@
           </div>
           <div class="small text-muted">
             <% if room.sessions > 0 %>
-              <i><%= " آخرین جلسه در: " view_date(room.last_session).html_safe %></i>
+              <i><%= view_date(room.last_session).html_safe %></i>
             <% else %>
               <i><%= "بدون جلسه" %></i>
             <% end %>
