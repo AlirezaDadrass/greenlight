@@ -70,7 +70,7 @@
               <div class="dropdown-divider"></div>
               <% if Rails.configuration.help_url.present? %>
                 <a class="dropdown-item" href="<%= Rails.configuration.help_url %>" target="_blank" rel="noopener">
-                  <i class="dropdown-icon far fa-question-circle"></i> <%= t("header.dropdown.help") %>
+                  <i class="dropdown-icon far fa-question-circle"></i> <%= "راهنما" %>
                 </a>
               <% end %>
               <% if Rails.configuration.report_issue_url.present? %>
@@ -79,22 +79,22 @@
                 </a>
               <% end %>
               <%= button_to logout_path, class: "dropdown-item" do %>
-                <i class="dropdown-icon fas fa-sign-out-alt"></i> <%= t("header.dropdown.signout") %>
+                <i class="dropdown-icon fas fa-sign-out-alt"></i> <%= "خروج" %>
               <% end %>
             </div>
           </div>
         <% elsif show_signin %>
           <% allow_greenlight_accounts = allow_greenlight_accounts? %>
           <% if allow_greenlight_accounts %>
-            <%= link_to t("login"), signin_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
+            <%= link_to "ورود", signin_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
           <% elsif Rails.configuration.loadbalanced_configuration %>
-            <%= link_to t("login"), omniauth_login_url(:bn_launcher), :class => "btn btn-outline-primary mx-2 sign-in-button", method: :post %>
+            <%= link_to "ورود", omniauth_login_url(:bn_launcher), :class => "btn btn-outline-primary mx-2 sign-in-button", method: :post %>
           <% else %>
-            <%= link_to t("login"), signin_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
+            <%= link_to "ورود", signin_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
           <% end %>
 
           <% if allow_user_signup? && allow_greenlight_accounts %>
-            <%= link_to t("signup.title"), signup_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
+            <%= link_to "ثبت نام", signup_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
           <% end %>
         <% end %>
       </div>
