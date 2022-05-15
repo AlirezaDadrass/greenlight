@@ -33,7 +33,7 @@
         </div>
         <h4 class="text-right mb-6"><%= @room.sessions %> <%= "جلسات" %><% unless hide_recording_tables %> | <%= @recordings.length %> <%= "رکورد ها" %><% end %></h4>
         <% unless exceeds_limit %>
-          <label class="form-label"><%= "آدرس رویداد" %></label>
+          <label class="form-label" style="text-align: right;"><%= "آدرس رویداد" %></label>
           <div class="row">
             <div class="col-lg-6 col-md-12 mt-2">
               <div class="input-icon invite-link-input">
