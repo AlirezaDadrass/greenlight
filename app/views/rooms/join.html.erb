@@ -33,12 +33,12 @@
         <%= f.text_field :join_name,
             required: true,
             class: "form-control join-form",
+            style="border-top-left-radius: 0; border-bottom-left-radius: 0;border-bottom-right-radius: 5px;border-top-right-radius: 5px;",
             placeholder: t("enter_your_name"),
             value: "#{@name}",
             readonly: !current_user.nil?, 
             autofocus: true,
             maxlength: 99
-            style="border-top-left-radius: 0; border-bottom-left-radius: 0;border-bottom-right-radius: 5px;border-top-right-radius: 5px;"
             %>
         <span class="input-group-append">
           <button id="room-join" type="submit" style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;border-bottom-right-radius: 0;border-top-right-radius: 0;" class="btn btn-primary btn-sm px-7 form-control join-form">
