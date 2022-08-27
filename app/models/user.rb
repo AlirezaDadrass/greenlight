@@ -21,7 +21,7 @@ require 'bbb_api'
 class User < ApplicationRecord
   include Deleteable
 
-  PASSWORD_PATTERN = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{8,}\z/
+  PASSWORD_PATTERN = /(.*))/
   after_create :setup_user
 
   before_save { email.try(:downcase!) }

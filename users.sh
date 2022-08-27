@@ -1,0 +1,1 @@
+ docker exec greenlight-v2 bundle exec rake user:create["علیرضا دادرس","9197675877@rayan.team","9197675877","user"]
